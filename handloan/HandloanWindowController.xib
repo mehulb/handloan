@@ -1,0 +1,194 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.Cocoa.XIB" version="3.0" toolsVersion="19529" targetRuntime="MacOSX.Cocoa" propertyAccessControl="none" useAutolayout="YES" customObjectInstantitationMethod="direct">
+    <dependencies>
+        <deployment identifier="macosx"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.CocoaPlugin" version="19529"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <customObject id="-2" userLabel="File's Owner" customClass="HandloanWindowController" customModule="handloan" customModuleProvider="target">
+            <connections>
+                <outlet property="accountLabel" destination="Usv-6U-jBt" id="E6g-Yu-t4u"/>
+                <outlet property="amountTextField" destination="KQG-5N-gSa" id="9XL-VT-ofp"/>
+                <outlet property="commentsTextField" destination="Zyo-6E-oGL" id="CLm-PZ-rCp"/>
+                <outlet property="datePicker" destination="ejU-9P-0j3" id="3RI-7b-y3D"/>
+                <outlet property="errorLabel" destination="9PQ-P2-ydx" id="Nob-s2-O1N"/>
+                <outlet property="typeSegemtedControl" destination="wS9-WP-MXz" id="mpr-Mn-Z2h"/>
+            </connections>
+        </customObject>
+        <customObject id="-1" userLabel="First Responder" customClass="FirstResponder"/>
+        <customObject id="-3" userLabel="Application" customClass="NSObject"/>
+        <window title="Window" allowsToolTipsWhenApplicationIsInactive="NO" autorecalculatesKeyViewLoop="NO" releasedWhenClosed="NO" animationBehavior="default" id="F0z-JX-Cv5">
+            <windowStyleMask key="styleMask" titled="YES" closable="YES" miniaturizable="YES" resizable="YES"/>
+            <windowPositionMask key="initialPositionMask" leftStrut="YES" rightStrut="YES" topStrut="YES" bottomStrut="YES"/>
+            <rect key="contentRect" x="196" y="240" width="440" height="399"/>
+            <rect key="screenRect" x="0.0" y="0.0" width="1920" height="1175"/>
+            <value key="minSize" type="size" width="440" height="399"/>
+            <value key="maxSize" type="size" width="440" height="399"/>
+            <view key="contentView" id="se5-gp-TjO">
+                <rect key="frame" x="0.0" y="0.0" width="440" height="399"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <box fixedFrame="YES" title="Handloan" translatesAutoresizingMaskIntoConstraints="NO" id="seb-Zd-Jjt">
+                        <rect key="frame" x="17" y="16" width="406" height="363"/>
+                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                        <view key="contentView" id="Bu2-ad-FGq">
+                            <rect key="frame" x="3" y="3" width="400" height="345"/>
+                            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                            <subviews>
+                                <segmentedControl verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="wS9-WP-MXz">
+                                    <rect key="frame" x="18" y="217" width="364" height="24"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <segmentedCell key="cell" borderStyle="border" alignment="left" style="rounded" trackingMode="selectOne" id="Z9Y-aE-IcA">
+                                        <font key="font" metaFont="system"/>
+                                        <segments>
+                                            <segment label="Borrow" width="178"/>
+                                            <segment label="Lend" width="177" selected="YES" tag="1"/>
+                                        </segments>
+                                    </segmentedCell>
+                                </segmentedControl>
+                                <datePicker verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="ejU-9P-0j3">
+                                    <rect key="frame" x="20" y="186" width="363" height="28"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="zOa-yU-8Iz">
+                                        <font key="font" metaFont="system"/>
+                                        <date key="date" timeIntervalSinceReferenceDate="667742437.90980303">
+                                            <!--2022-02-28 12:00:37 +0000-->
+                                        </date>
+                                        <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                    </datePickerCell>
+                                </datePicker>
+                                <box fixedFrame="YES" title="Comments" translatesAutoresizingMaskIntoConstraints="NO" id="1he-3O-Ivs">
+                                    <rect key="frame" x="17" y="56" width="366" height="71"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <view key="contentView" id="jK9-gK-LlD">
+                                        <rect key="frame" x="3" y="3" width="360" height="53"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Zyo-6E-oGL">
+                                                <rect key="frame" x="2" y="4" width="356" height="45"/>
+                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="(Optional)" id="xBN-Wb-FcP">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="Zyo-6E-oGL" firstAttribute="top" secondItem="jK9-gK-LlD" secondAttribute="top" constant="4" id="cK6-u7-Hzk"/>
+                                            <constraint firstAttribute="trailing" secondItem="Zyo-6E-oGL" secondAttribute="trailing" constant="4" id="pXY-l3-Qmj"/>
+                                            <constraint firstAttribute="bottom" secondItem="Zyo-6E-oGL" secondAttribute="bottom" constant="4" id="pwQ-gH-bpN"/>
+                                            <constraint firstItem="Zyo-6E-oGL" firstAttribute="leading" secondItem="jK9-gK-LlD" secondAttribute="leading" constant="4" id="sZJ-rE-KKp"/>
+                                        </constraints>
+                                    </view>
+                                </box>
+                                <box fixedFrame="YES" title="Amount" translatesAutoresizingMaskIntoConstraints="NO" id="Xq0-U7-eye">
+                                    <rect key="frame" x="17" y="131" width="366" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <view key="contentView" id="mhg-xy-kMy">
+                                        <rect key="frame" x="3" y="3" width="360" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="KQG-5N-gSa">
+                                                <rect key="frame" x="2" y="4" width="356" height="21"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="(Required)" id="KFS-Pb-L1Z">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                                <connections>
+                                                    <outlet property="formatter" destination="xHc-rA-Ecp" id="8kA-JO-MUk"/>
+                                                </connections>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="trailing" secondItem="KQG-5N-gSa" secondAttribute="trailing" constant="4" id="667-PN-Tjo"/>
+                                            <constraint firstAttribute="bottom" secondItem="KQG-5N-gSa" secondAttribute="bottom" constant="4" id="I5c-Oy-jiM"/>
+                                            <constraint firstItem="KQG-5N-gSa" firstAttribute="top" secondItem="mhg-xy-kMy" secondAttribute="top" constant="4" id="PuA-Ec-NeV"/>
+                                            <constraint firstItem="KQG-5N-gSa" firstAttribute="leading" secondItem="mhg-xy-kMy" secondAttribute="leading" constant="4" id="kFI-AH-ccT"/>
+                                        </constraints>
+                                    </view>
+                                </box>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="RYV-5w-PM1">
+                                    <rect key="frame" x="312" y="13" width="75" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Save" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="ggr-lI-83k">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <string key="keyEquivalent" base64-UTF8="YES">
+DQ
+</string>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="saveButton_Clicked:" target="-2" id="hxZ-KU-zwO"/>
+                                    </connections>
+                                </button>
+                                <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="Jgg-pG-T0Y">
+                                    <rect key="frame" x="239" y="13" width="75" height="32"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <buttonCell key="cell" type="push" title="Cancel" bezelStyle="rounded" alignment="center" borderStyle="border" imageScaling="proportionallyDown" inset="2" id="z9y-Pi-VSm">
+                                        <behavior key="behavior" pushIn="YES" lightByBackground="YES" lightByGray="YES"/>
+                                        <font key="font" metaFont="system"/>
+                                        <string key="keyEquivalent" base64-UTF8="YES">
+Gw
+</string>
+                                    </buttonCell>
+                                    <connections>
+                                        <action selector="cancelButton_Clicked:" target="-2" id="ADw-7i-wbr"/>
+                                    </connections>
+                                </button>
+                                <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="9PQ-P2-ydx">
+                                    <rect key="frame" x="18" y="8" width="222" height="44"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <textFieldCell key="cell" selectable="YES" id="fz1-Xi-KiS">
+                                        <font key="font" metaFont="system" size="11"/>
+                                        <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
+                                        <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                    </textFieldCell>
+                                </textField>
+                                <box fixedFrame="YES" title="Account" translatesAutoresizingMaskIntoConstraints="NO" id="pZq-qW-d3a">
+                                    <rect key="frame" x="17" y="278" width="366" height="47"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <view key="contentView" id="DLk-kG-p2e">
+                                        <rect key="frame" x="3" y="3" width="360" height="29"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                        <subviews>
+                                            <textField focusRingType="none" verticalHuggingPriority="750" textCompletion="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Usv-6U-jBt">
+                                                <rect key="frame" x="2" y="4" width="356" height="21"/>
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" allowsUndo="NO" sendsActionOnEndEditing="YES" focusRingType="none" id="mg1-Yh-5Ex">
+                                                    <font key="font" usesAppearanceFont="YES"/>
+                                                    <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
+                                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                                </textFieldCell>
+                                            </textField>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstAttribute="bottom" secondItem="Usv-6U-jBt" secondAttribute="bottom" constant="4" id="EUm-Kf-HIA"/>
+                                            <constraint firstItem="Usv-6U-jBt" firstAttribute="top" secondItem="DLk-kG-p2e" secondAttribute="top" constant="4" id="pO5-QG-X2a"/>
+                                            <constraint firstItem="Usv-6U-jBt" firstAttribute="leading" secondItem="DLk-kG-p2e" secondAttribute="leading" constant="4" id="rYi-DG-aUY"/>
+                                            <constraint firstAttribute="trailing" secondItem="Usv-6U-jBt" secondAttribute="trailing" constant="4" id="riE-iP-pOs"/>
+                                        </constraints>
+                                    </view>
+                                </box>
+                                <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" titlePosition="noTitle" translatesAutoresizingMaskIntoConstraints="NO" id="mbK-gi-U2Y">
+                                    <rect key="frame" x="0.0" y="260" width="400" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                                    <view key="contentView" id="bNA-SW-MUx">
+                                        <rect key="frame" x="0.0" y="0.0" width="400" height="1"/>
+                                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                    </view>
+                                    <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                </box>
+                            </subviews>
+                        </view>
+                    </box>
+                </subviews>
+            </view>
+            <point key="canvasLocation" x="139" y="203.5"/>
+        </window>
+        <numberFormatter formatterBehavior="default10_4" numberStyle="currency" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="2" maximumFractionDigits="2" id="xHc-rA-Ecp">
+            <real key="minimum" value="0.0"/>
+        </numberFormatter>
+    </objects>
+</document>

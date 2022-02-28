@@ -8,18 +8,47 @@
 
 /* Begin PBXBuildFile section */
 		28F4220427C81D38003D8F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4220327C81D38003D8F8A /* AppDelegate.swift */; };
-		28F4220627C81D38003D8F8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4220527C81D38003D8F8A /* ViewController.swift */; };
 		28F4220827C81D39003D8F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220727C81D39003D8F8A /* Assets.xcassets */; };
 		28F4220B27C81D39003D8F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220927C81D39003D8F8A /* Main.storyboard */; };
+		28F4221327C82009003D8F8A /* WindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4221227C82009003D8F8A /* WindowController.swift */; };
+		28F4221527C94D02003D8F8A /* SideViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4221427C94D02003D8F8A /* SideViewController.swift */; };
+		28F4221827C94D45003D8F8A /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4221727C94D45003D8F8A /* ViewController.swift */; };
+		28F4221A27C950D0003D8F8A /* DBManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4221927C950D0003D8F8A /* DBManager.swift */; };
+		28F4221C27C951EE003D8F8A /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4221B27C951EE003D8F8A /* Logger.swift */; };
+		28F4221F27C9547F003D8F8A /* SQLite in Frameworks */ = {isa = PBXBuildFile; productRef = 28F4221E27C9547F003D8F8A /* SQLite */; };
+		28F4222127C97A13003D8F8A /* Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4222027C97A13003D8F8A /* Account.swift */; };
+		28F4222327C97A1D003D8F8A /* Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4222227C97A1D003D8F8A /* Transaction.swift */; };
+		28F4222C27CAABB0003D8F8A /* CustomButton in Frameworks */ = {isa = PBXBuildFile; productRef = 28F4222B27CAABB0003D8F8A /* CustomButton */; };
+		28F4223527CB7DC9003D8F8A /* TransactionWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4223327CB7DC9003D8F8A /* TransactionWindowController.swift */; };
+		28F4223627CB7DC9003D8F8A /* TransactionWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F4223427CB7DC9003D8F8A /* TransactionWindowController.xib */; };
+		28F4223D27CB7E0C003D8F8A /* AccountWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4223B27CB7E0C003D8F8A /* AccountWindowController.swift */; };
+		28F4223E27CB7E0C003D8F8A /* AccountWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F4223C27CB7E0C003D8F8A /* AccountWindowController.xib */; };
+		28F4224A27CBD43E003D8F8A /* Handloan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4224927CBD43E003D8F8A /* Handloan.swift */; };
+		28F4225127CBEE4A003D8F8A /* HandloanWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4224F27CBEE4A003D8F8A /* HandloanWindowController.swift */; };
+		28F4225227CBEE4A003D8F8A /* HandloanWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */; };
+		28F4225B27CC0029003D8F8A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 28F4225A27CC0029003D8F8A /* SwiftDate */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		28F4220027C81D38003D8F8A /* handloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = handloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F4220327C81D38003D8F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		28F4220527C81D38003D8F8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		28F4220727C81D39003D8F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F4220A27C81D39003D8F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		28F4220C27C81D39003D8F8A /* handloan.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = handloan.entitlements; sourceTree = "<group>"; };
+		28F4221227C82009003D8F8A /* WindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WindowController.swift; sourceTree = "<group>"; };
+		28F4221427C94D02003D8F8A /* SideViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SideViewController.swift; sourceTree = "<group>"; };
+		28F4221727C94D45003D8F8A /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		28F4221927C950D0003D8F8A /* DBManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DBManager.swift; sourceTree = "<group>"; };
+		28F4221B27C951EE003D8F8A /* Logger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		28F4222027C97A13003D8F8A /* Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Account.swift; sourceTree = "<group>"; };
+		28F4222227C97A1D003D8F8A /* Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Transaction.swift; sourceTree = "<group>"; };
+		28F4223327CB7DC9003D8F8A /* TransactionWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionWindowController.swift; sourceTree = "<group>"; };
+		28F4223427CB7DC9003D8F8A /* TransactionWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionWindowController.xib; sourceTree = "<group>"; };
+		28F4223B27CB7E0C003D8F8A /* AccountWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccountWindowController.swift; sourceTree = "<group>"; };
+		28F4223C27CB7E0C003D8F8A /* AccountWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AccountWindowController.xib; sourceTree = "<group>"; };
+		28F4224927CBD43E003D8F8A /* Handloan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handloan.swift; sourceTree = "<group>"; };
+		28F4224F27CBEE4A003D8F8A /* HandloanWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandloanWindowController.swift; sourceTree = "<group>"; };
+		28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandloanWindowController.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -27,6 +56,9 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				28F4221F27C9547F003D8F8A /* SQLite in Frameworks */,
+				28F4222C27CAABB0003D8F8A /* CustomButton in Frameworks */,
+				28F4225B27CC0029003D8F8A /* SwiftDate in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -52,13 +84,58 @@
 		28F4220227C81D38003D8F8A /* handloan */ = {
 			isa = PBXGroup;
 			children = (
-				28F4220327C81D38003D8F8A /* AppDelegate.swift */,
-				28F4220527C81D38003D8F8A /* ViewController.swift */,
-				28F4220727C81D39003D8F8A /* Assets.xcassets */,
+				28F4221227C82009003D8F8A /* WindowController.swift */,
 				28F4220927C81D39003D8F8A /* Main.storyboard */,
-				28F4220C27C81D39003D8F8A /* handloan.entitlements */,
+				28F4221427C94D02003D8F8A /* SideViewController.swift */,
+				28F4221727C94D45003D8F8A /* ViewController.swift */,
+				28F4223F27CBC99D003D8F8A /* AccountController */,
+				28F4225427CBEEA4003D8F8A /* HandloanController */,
+				28F4224027CBC9B2003D8F8A /* TransactionController */,
+				28F4221627C94D08003D8F8A /* Supporting Files */,
+				28F4221927C950D0003D8F8A /* DBManager.swift */,
+				28F4222027C97A13003D8F8A /* Account.swift */,
+				28F4224927CBD43E003D8F8A /* Handloan.swift */,
+				28F4222227C97A1D003D8F8A /* Transaction.swift */,
 			);
 			path = handloan;
+			sourceTree = "<group>";
+		};
+		28F4221627C94D08003D8F8A /* Supporting Files */ = {
+			isa = PBXGroup;
+			children = (
+				28F4220C27C81D39003D8F8A /* handloan.entitlements */,
+				28F4220727C81D39003D8F8A /* Assets.xcassets */,
+				28F4221B27C951EE003D8F8A /* Logger.swift */,
+				28F4220327C81D38003D8F8A /* AppDelegate.swift */,
+			);
+			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		28F4223F27CBC99D003D8F8A /* AccountController */ = {
+			isa = PBXGroup;
+			children = (
+				28F4223B27CB7E0C003D8F8A /* AccountWindowController.swift */,
+				28F4223C27CB7E0C003D8F8A /* AccountWindowController.xib */,
+			);
+			name = AccountController;
+			sourceTree = "<group>";
+		};
+		28F4224027CBC9B2003D8F8A /* TransactionController */ = {
+			isa = PBXGroup;
+			children = (
+				28F4223327CB7DC9003D8F8A /* TransactionWindowController.swift */,
+				28F4223427CB7DC9003D8F8A /* TransactionWindowController.xib */,
+			);
+			name = TransactionController;
+			sourceTree = "<group>";
+		};
+		28F4225427CBEEA4003D8F8A /* HandloanController */ = {
+			isa = PBXGroup;
+			children = (
+				28F4224F27CBEE4A003D8F8A /* HandloanWindowController.swift */,
+				28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */,
+			);
+			name = HandloanController;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -77,6 +154,11 @@
 			dependencies = (
 			);
 			name = handloan;
+			packageProductDependencies = (
+				28F4221E27C9547F003D8F8A /* SQLite */,
+				28F4222B27CAABB0003D8F8A /* CustomButton */,
+				28F4225A27CC0029003D8F8A /* SwiftDate */,
+			);
 			productName = handloan;
 			productReference = 28F4220027C81D38003D8F8A /* handloan.app */;
 			productType = "com.apple.product-type.application";
@@ -105,6 +187,11 @@
 				Base,
 			);
 			mainGroup = 28F421F727C81D38003D8F8A;
+			packageReferences = (
+				28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */,
+				28F4222A27CAABB0003D8F8A /* XCRemoteSwiftPackageReference "CustomButton" */,
+				28F4225927CC0029003D8F8A /* XCRemoteSwiftPackageReference "SwiftDate" */,
+			);
 			productRefGroup = 28F4220127C81D38003D8F8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,7 +207,10 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F4220827C81D39003D8F8A /* Assets.xcassets in Resources */,
+				28F4225227CBEE4A003D8F8A /* HandloanWindowController.xib in Resources */,
+				28F4223627CB7DC9003D8F8A /* TransactionWindowController.xib in Resources */,
 				28F4220B27C81D39003D8F8A /* Main.storyboard in Resources */,
+				28F4223E27CB7E0C003D8F8A /* AccountWindowController.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -131,8 +221,18 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				28F4220627C81D38003D8F8A /* ViewController.swift in Sources */,
+				28F4221A27C950D0003D8F8A /* DBManager.swift in Sources */,
+				28F4223D27CB7E0C003D8F8A /* AccountWindowController.swift in Sources */,
+				28F4224A27CBD43E003D8F8A /* Handloan.swift in Sources */,
+				28F4221C27C951EE003D8F8A /* Logger.swift in Sources */,
+				28F4222327C97A1D003D8F8A /* Transaction.swift in Sources */,
+				28F4221327C82009003D8F8A /* WindowController.swift in Sources */,
 				28F4220427C81D38003D8F8A /* AppDelegate.swift in Sources */,
+				28F4225127CBEE4A003D8F8A /* HandloanWindowController.swift in Sources */,
+				28F4221827C94D45003D8F8A /* ViewController.swift in Sources */,
+				28F4223527CB7DC9003D8F8A /* TransactionWindowController.swift in Sources */,
+				28F4221527C94D02003D8F8A /* SideViewController.swift in Sources */,
+				28F4222127C97A13003D8F8A /* Account.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,6 +441,51 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.9.2;
+			};
+		};
+		28F4222A27CAABB0003D8F8A /* XCRemoteSwiftPackageReference "CustomButton" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/sindresorhus/CustomButton";
+			requirement = {
+				branch = main;
+				kind = branch;
+			};
+		};
+		28F4225927CC0029003D8F8A /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/malcommac/SwiftDate";
+			requirement = {
+				branch = master;
+				kind = branch;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		28F4221E27C9547F003D8F8A /* SQLite */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */;
+			productName = SQLite;
+		};
+		28F4222B27CAABB0003D8F8A /* CustomButton */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28F4222A27CAABB0003D8F8A /* XCRemoteSwiftPackageReference "CustomButton" */;
+			productName = CustomButton;
+		};
+		28F4225A27CC0029003D8F8A /* SwiftDate */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28F4225927CC0029003D8F8A /* XCRemoteSwiftPackageReference "SwiftDate" */;
+			productName = SwiftDate;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 28F421F827C81D38003D8F8A /* Project object */;
 }
