@@ -1,0 +1,34 @@
+{
+  "object": {
+    "pins": [
+      {
+        "package": "CustomButton",
+        "repositoryURL": "https://github.com/sindresorhus/CustomButton",
+        "state": {
+          "branch": "main",
+          "revision": "7d4a8de8821b33457ac5905ec5a44a85a407f42c",
+          "version": null
+        }
+      },
+      {
+        "package": "SQLite.swift",
+        "repositoryURL": "https://github.com/stephencelis/SQLite.swift",
+        "state": {
+          "branch": null,
+          "revision": "5f5ad81ac0d0a0f3e56e39e646e8423c617df523",
+          "version": "0.13.2"
+        }
+      },
+      {
+        "package": "SwiftDate",
+        "repositoryURL": "https://github.com/malcommac/SwiftDate",
+        "state": {
+          "branch": "master",
+          "revision": "6190d0cefff3013e77ed567e6b074f324e5c5bf5",
+          "version": null
+        }
+      }
+    ]
+  },
+  "version": 1
+}
