@@ -111,11 +111,11 @@ extension DBManager {
             do {
                 let accountsTbl = Table("accounts")
                 
-                let aidCol = Expression<String>("id")
+                let idCol = Expression<String>("id")
                 let nameCol = Expression<String>("name")
                 let commentsCol = Expression<String>("comments")
                 
-                try database.run(accountsTbl.insert(or: .replace, aidCol <- a.id, nameCol <- a.name, commentsCol <- a.comments))
+                try database.run(accountsTbl.insert(or: .replace, idCol <- a.id, nameCol <- a.name, commentsCol <- a.comments))
             } catch {
                 throw error
             }
@@ -129,12 +129,12 @@ extension DBManager {
             do {
                 let accountsTbl = Table("accounts")
                 
-                let aidCol = Expression<String>("id")
+                let idCol = Expression<String>("id")
                 let nameCol = Expression<String>("name")
                 let commentsCol = Expression<String>("comments")
                 
                 for acc in try database.prepare(accountsTbl) {
-                    accounts.append(Account(id: acc[aidCol], name: acc[nameCol], comments: acc[commentsCol]))
+                    accounts.append(Account(id: acc[idCol], name: acc[nameCol], comments: acc[commentsCol]))
                 }
                 return accounts
             } catch {
@@ -145,10 +145,39 @@ extension DBManager {
         }
     }
     func fetchAccount(forId accountId: String) throws -> Account? {
+        if let database = database {
+            do {
+                let accountsTbl = Table("accounts")
+                
+                let idCol = Expression<String>("id")
+                let nameCol = Expression<String>("name")
+                let commentsCol = Expression<String>("comments")
+                
+                let filteredTbl = accountsTbl.filter(idCol == accountId)
+                if let accountRow = try database.pluck(filteredTbl) {
+                    return Account(id: accountRow[idCol], name: accountRow[nameCol], comments: accountRow[commentsCol])
+                }
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
         return nil
     }
-    func fetchAccount(forHandloanId handloanId: String) throws -> Account? {
-        return nil
+    func deleteAccount(withId accountId: String) throws {
+        if let database = database {
+            do {
+                let accountsTbl = Table("accounts")
+                let idCol = Expression<String>("id")
+                let filteredTbl = accountsTbl.filter(idCol == accountId)
+                try database.run(filteredTbl.delete())
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
     }
 }
 
@@ -160,15 +189,15 @@ extension DBManager {
             do {
                 let handloanTbl = Table("handloans")
                 
-                let hlIdCol = Expression<String>("id")
-                let hlTypeCol = Expression<String>("type")
-                let hlNameCol = Expression<String>("name")
-                let hlDatetimeCol = Expression<Int64>("datetime")
-                let hlAmountCol = Expression<Double>("amount")
-                let hlCommentsCol = Expression<String>("comments")
+                let idCol = Expression<String>("id")
+                let typeCol = Expression<String>("type")
+                let nameCol = Expression<String>("name")
+                let datetimeCol = Expression<Int64>("datetime")
+                let amountCol = Expression<Double>("amount")
+                let commentsCol = Expression<String>("comments")
                 let accountIdCol = Expression<String>("accountId")
                 
-                try database.run(handloanTbl.insert(or: .replace, hlIdCol <- h.id, hlTypeCol <- h.type.rawValue, hlNameCol <- h.name, hlDatetimeCol <- Int64(h.datetime), hlAmountCol <- h.amount, hlCommentsCol <- h.comments, accountIdCol <- h.accountId))
+                try database.run(handloanTbl.insert(or: .replace, idCol <- h.id, typeCol <- h.type.rawValue, nameCol <- h.name, datetimeCol <- Int64(h.datetime), amountCol <- h.amount, commentsCol <- h.comments, accountIdCol <- h.accountId))
             } catch {
                 throw error
             }
@@ -182,17 +211,17 @@ extension DBManager {
             do {
                 let handloanTbl = Table("handloans")
                 
-                let hlIdCol = Expression<String>("id")
-                let hlTypeCol = Expression<String>("type")
-                let hlNameCol = Expression<String>("name")
-                let hlDatetimeCol = Expression<Int64>("datetime")
-                let hlAmountCol = Expression<Double>("amount")
-                let hlCommentsCol = Expression<String>("comments")
+                let idCol = Expression<String>("id")
+                let typeCol = Expression<String>("type")
+                let nameCol = Expression<String>("name")
+                let datetimeCol = Expression<Int64>("datetime")
+                let amountCol = Expression<Double>("amount")
+                let commentsCol = Expression<String>("comments")
                 let accountIdCol = Expression<String>("accountId")
                 
-                let accountHandloansTbl = handloanTbl.filter(accountIdCol == accountId)
-                for hl in try database.prepare(accountHandloansTbl) {
-                    handloans.append(Handloan(id: hl[hlIdCol], type: HandloanType(rawValue: hl[hlTypeCol])!, name: hl[hlNameCol], datetime: TimeInterval(hl[hlDatetimeCol]), amount: hl[hlAmountCol], comments: hl[hlCommentsCol], accountId: hl[accountIdCol]))
+                let filteredTbl = handloanTbl.filter(accountIdCol == accountId)
+                for hl in try database.prepare(filteredTbl) {
+                    handloans.append(Handloan(id: hl[idCol], type: HandloanType(rawValue: hl[typeCol])!, name: hl[nameCol], datetime: TimeInterval(hl[datetimeCol]), amount: hl[amountCol], comments: hl[commentsCol], accountId: hl[accountIdCol]))
                 }
                 return handloans
             } catch {
@@ -203,10 +232,57 @@ extension DBManager {
         }
     }
     func fetchHandloan(forId handloanId: String) throws -> Handloan? {
+        if let database = database {
+            do {
+                let handloanTbl = Table("handloans")
+                
+                let idCol = Expression<String>("id")
+                let typeCol = Expression<String>("type")
+                let nameCol = Expression<String>("name")
+                let datetimeCol = Expression<Int64>("datetime")
+                let amountCol = Expression<Double>("amount")
+                let commentsCol = Expression<String>("comments")
+                let accountIdCol = Expression<String>("accountId")
+                
+                let filteredTbl = handloanTbl.filter(idCol == handloanId)
+                if let hl = try database.pluck(filteredTbl) {
+                    return Handloan(id: hl[idCol], type: HandloanType(rawValue: hl[typeCol])!, name: hl[nameCol], datetime: TimeInterval(hl[datetimeCol]), amount: hl[amountCol], comments: hl[commentsCol], accountId: hl[accountIdCol])
+                }
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
         return nil
     }
-    func fetchHandloan(forTransactionId transactionId: String) throws -> Handloan? {
-        return nil
+    func deleteHandloan(withId handloanId: String) throws {
+        if let database = database {
+            do {
+                let handloanTbl = Table("handloans")
+                let idCol = Expression<String>("id")
+                let filteredTbl = handloanTbl.filter(idCol == handloanId)
+                try database.run(filteredTbl.delete())
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
+    }
+    func deleteHandloans(withAccountId accountId: String) throws {
+        if let database = database {
+            do {
+                let handloanTbl = Table("handloans")
+                let accountIdCol = Expression<String>("accountId")
+                let filteredTbl = handloanTbl.filter(accountIdCol == accountId)
+                try database.run(filteredTbl.delete())
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
     }
 }
 
@@ -217,14 +293,14 @@ extension DBManager {
             do {
                 let transactionsTbl = Table("transactions")
                 
-                let tidCol = Expression<String>("id")
+                let idCol = Expression<String>("id")
                 let typeCol = Expression<String>("type")
                 let datetimeCol = Expression<Int64>("datetime")
                 let amountCol = Expression<Double>("amount")
                 let commentsCol = Expression<String?>("comments")
                 let handloanIdCol = Expression<String>("handloanId")
                 
-                try database.run(transactionsTbl.insert(or: .replace, tidCol <- t.id, typeCol <- t.type.rawValue, datetimeCol <- Int64(t.datetime), amountCol <- t.amount, commentsCol <- t.comments, handloanIdCol <- t.handloanId))
+                try database.run(transactionsTbl.insert(or: .replace, idCol <- t.id, typeCol <- t.type.rawValue, datetimeCol <- Int64(t.datetime), amountCol <- t.amount, commentsCol <- t.comments, handloanIdCol <- t.handloanId))
             } catch {
                 throw error
             }
@@ -245,8 +321,8 @@ extension DBManager {
                 let commentsCol = Expression<String>("comments")
                 let handloanIdCol = Expression<String>("handloanId")
                 
-                let handloanTransactionsTbl = transactionsTbl.filter(handloanIdCol == handloanId)
-                for t in try database.prepare(handloanTransactionsTbl) {
+                let filteredTbl = transactionsTbl.filter(handloanIdCol == handloanId)
+                for t in try database.prepare(filteredTbl) {
                     transactions.append(Transaction(id: t[idCol], type: TransactionType(rawValue: t[typeCol])!, datetime: TimeInterval(t[datetimeCol]), amount: t[amountCol], comments: t[commentsCol], handloanId: t[handloanIdCol]))
                 }
                 return transactions
@@ -258,10 +334,56 @@ extension DBManager {
         }
     }
     func fetchTransaction(forId transactionId: String) throws -> Transaction? {
+        if let database = database {
+            do {
+                let transactionsTbl = Table("transactions")
+                
+                let idCol = Expression<String>("id")
+                let typeCol = Expression<String>("type")
+                let datetimeCol = Expression<Int64>("datetime")
+                let amountCol = Expression<Double>("amount")
+                let commentsCol = Expression<String>("comments")
+                let handloanIdCol = Expression<String>("handloanId")
+                
+                let filteredTbl = transactionsTbl.filter(idCol == transactionId)
+                if let t = try database.pluck(filteredTbl) {
+                    return Transaction(id: t[idCol], type: TransactionType(rawValue: t[typeCol])!, datetime: TimeInterval(t[datetimeCol]), amount: t[amountCol], comments: t[commentsCol], handloanId: t[handloanIdCol])
+                }
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
         return nil
     }
-    func fetchTransaction(forHandloanId handloanId: String) throws -> Transaction? {
-        return nil
+    func deleteTransaction(withId transactionId: String) throws {
+        if let database = database {
+            do {
+                let transactionsTbl = Table("transactions")
+                let idCol = Expression<String>("id")
+                let filteredTbl = transactionsTbl.filter(idCol == transactionId)
+                try database.run(filteredTbl.delete())
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
+    }
+    func deleteTransactions(withHandloanId handloanId: String) throws {
+        if let database = database {
+            do {
+                let transactionsTbl = Table("transactions")
+                let handloanIdCol = Expression<String>("handloanId")
+                let filteredTbl = transactionsTbl.filter(handloanIdCol == handloanId)
+                try database.run(filteredTbl.delete())
+            } catch {
+                throw error
+            }
+        } else {
+            throw DBError.InvalidDatabaseConnection
+        }
     }
 }
 
