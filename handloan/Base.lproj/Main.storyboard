@@ -925,7 +925,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="uBz-3e-Ewh">
+                                                        <tableCellView identifier="kCell" id="uBz-3e-Ewh">
                                                             <rect key="frame" x="8" y="0.0" width="62" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -943,7 +943,7 @@
                                                                 <outlet property="textField" destination="o1u-Ro-oZ4" id="qD4-bs-zHr"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kTypeID" id="ERw-he-TrE">
+                                                        <tableCellView identifier="kCell" id="ERw-he-TrE">
                                                             <rect key="frame" x="8" y="24" width="62" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -975,7 +975,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="DfP-dX-zHS">
+                                                        <tableCellView identifier="kCell" id="DfP-dX-zHS">
                                                             <rect key="frame" x="87" y="0.0" width="64" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -993,7 +993,7 @@
                                                                 <outlet property="textField" destination="GVr-Fc-I6G" id="bgk-n1-9HH"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kNameID" id="9gc-HO-99a">
+                                                        <tableCellView identifier="kCell" id="9gc-HO-99a">
                                                             <rect key="frame" x="87" y="24" width="64" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1025,7 +1025,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="mtl-zC-Ffr">
+                                                        <tableCellView identifier="kCell" id="mtl-zC-Ffr">
                                                             <rect key="frame" x="168" y="0.0" width="92" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1043,7 +1043,7 @@
                                                                 <outlet property="textField" destination="rla-vf-yR8" id="PJm-06-WxM"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kDateID" id="Md4-hM-gTQ">
+                                                        <tableCellView identifier="kCell" id="Md4-hM-gTQ">
                                                             <rect key="frame" x="168" y="24" width="92" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1075,12 +1075,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="aJs-Mi-wTW">
+                                                        <tableCellView identifier="kCell" id="aJs-Mi-wTW">
                                                             <rect key="frame" x="277" y="0.0" width="92" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OZg-fS-MaF">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="16"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="88" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="Qfb-vj-MsT">
                                                                         <font key="font" metaFont="systemBold"/>
@@ -1093,12 +1093,12 @@
                                                                 <outlet property="textField" destination="OZg-fS-MaF" id="cWE-aw-JHb"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kAmountID" id="Jrg-i4-qTU">
+                                                        <tableCellView identifier="kCell" id="Jrg-i4-qTU">
                                                             <rect key="frame" x="277" y="24" width="92" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="LPU-bG-a3A">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="16"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="88" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="sk1-i3-MjO">
                                                                         <font key="font" metaFont="systemLight" size="12"/>
@@ -1125,12 +1125,12 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="K0H-Da-Me3">
+                                                        <tableCellView identifier="kCell" id="K0H-Da-Me3">
                                                             <rect key="frame" x="386" y="0.0" width="92" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="yLM-KT-T1f">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="16"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="88" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="BgN-cb-EfO">
                                                                         <font key="font" metaFont="systemBold"/>
@@ -1143,12 +1143,12 @@
                                                                 <outlet property="textField" destination="yLM-KT-T1f" id="aXx-Eg-ZAa"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kBalanceID" id="cL0-CE-yZL">
+                                                        <tableCellView identifier="kCell" id="cL0-CE-yZL">
                                                             <rect key="frame" x="386" y="24" width="92" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
                                                                 <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="fkg-ih-dNx">
-                                                                    <rect key="frame" x="0.0" y="0.0" width="92" height="16"/>
+                                                                    <rect key="frame" x="2" y="0.0" width="88" height="16"/>
                                                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                                                     <textFieldCell key="cell" lineBreakMode="truncatingTail" sendsActionOnEndEditing="YES" alignment="right" title="Table View Cell" drawsBackground="YES" id="ssr-U8-B1s">
                                                                         <font key="font" metaFont="systemLight" size="12"/>
@@ -1175,7 +1175,7 @@
                                                     </textFieldCell>
                                                     <tableColumnResizingMask key="resizingMask" resizeWithTable="YES" userResizable="YES"/>
                                                     <prototypeCellViews>
-                                                        <tableCellView identifier="kParentCell" id="ifb-5R-avW">
+                                                        <tableCellView identifier="kCell" id="ifb-5R-avW">
                                                             <rect key="frame" x="495" y="0.0" width="114" height="24"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>
@@ -1193,7 +1193,7 @@
                                                                 <outlet property="textField" destination="aPe-wo-vth" id="Ggx-G3-7lR"/>
                                                             </connections>
                                                         </tableCellView>
-                                                        <tableCellView identifier="kCommentsID" id="4Ws-U7-5Ba">
+                                                        <tableCellView identifier="kCell" id="4Ws-U7-5Ba">
                                                             <rect key="frame" x="495" y="24" width="114" height="17"/>
                                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                                             <subviews>

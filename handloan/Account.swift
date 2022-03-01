@@ -38,7 +38,7 @@ extension Account {
     }
     func handloans() throws -> [Handloan] {
         do {
-            return try DBManager.shared.fetchHandloansFor(accountId: self.id)
+            return try DBManager.shared.fetchHandloans(forAccountId: self.id)
         } catch {
             throw error
         }

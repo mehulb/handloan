@@ -99,12 +99,11 @@ class DBManager {
         } else {
             Logger.error("documents dir missing")
         }
-        
         return nil
     }
 }
 
-// Manage Accounts
+// Manage Accounts (Return Account(s))
 extension DBManager {
     func saveAccount(_ a: Account) throws {
         Logger.debug("Add account: \(a.dictionary())")
@@ -145,6 +144,12 @@ extension DBManager {
             throw DBError.InvalidDatabaseConnection
         }
     }
+    func fetchAccount(forId accountId: String) throws -> Account? {
+        return nil
+    }
+    func fetchAccount(forHandloanId handloanId: String) throws -> Account? {
+        return nil
+    }
 }
 
 // Manage Handloans
@@ -171,7 +176,7 @@ extension DBManager {
             throw DBError.InvalidDatabaseConnection
         }
     }
-    func fetchHandloansFor(accountId: String) throws -> [Handloan] {
+    func fetchHandloans(forAccountId accountId: String) throws -> [Handloan] {
         var handloans = [Handloan]()
         if let database = database {
             do {
@@ -197,6 +202,12 @@ extension DBManager {
             throw DBError.InvalidDatabaseConnection
         }
     }
+    func fetchHandloan(forId handloanId: String) throws -> Handloan? {
+        return nil
+    }
+    func fetchHandloan(forTransactionId transactionId: String) throws -> Handloan? {
+        return nil
+    }
 }
 
 extension DBManager {
@@ -221,7 +232,7 @@ extension DBManager {
             throw DBError.InvalidDatabaseConnection
         }
     }
-    func fetchTransactionsFor(handloanId: String) throws -> [Transaction] {
+    func fetchTransactions(forHandloanId handloanId: String) throws -> [Transaction] {
         var transactions = [Transaction]()
         if let database = database {
             do {
@@ -245,6 +256,12 @@ extension DBManager {
         } else {
             throw DBError.InvalidDatabaseConnection
         }
+    }
+    func fetchTransaction(forId transactionId: String) throws -> Transaction? {
+        return nil
+    }
+    func fetchTransaction(forHandloanId handloanId: String) throws -> Transaction? {
+        return nil
     }
 }
 

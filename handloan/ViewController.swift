@@ -95,8 +95,8 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
         return (item is Handloan) ? 28.0 : 17.0
     }
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
-        if let handloan = item as? Handloan {
-            if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "kParentCell"), owner: self) as? NSTableCellView {
+        if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "kCell"), owner: self) as? NSTableCellView {
+            if let handloan = item as? Handloan {
                 if tableColumn?.identifier.rawValue == "kTypeID" {
                     cell.textField?.stringValue = handloan.type.rawValue
                 } else if tableColumn?.identifier.rawValue == "kNameID" {
@@ -105,6 +105,7 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
                     cell.textField?.stringValue = "\(Date(timeIntervalSince1970: handloan.datetime).toFormat("dd MMM yyyy"))"
                 } else if tableColumn?.identifier.rawValue == "kAmountID" {
                     cell.textField?.stringValue = "\(handloan.amount)"
+                    cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kBalanceID" {
                     let balance = calculateBalance(handloan)
                     cell.textField?.stringValue = "\(balance)"
@@ -113,14 +114,13 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
                     } else {
                         cell.textField?.textColor = NSColor.labelColor
                     }
+                    cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kCommentsID" {
                     cell.textField?.stringValue = handloan.comments
                 }
+                cell.textField?.font = NSFont.systemFont(ofSize: 13.0, weight: .bold)
                 return cell;
-            }
-        }
-        else if let transaction = item as? Transaction {
-            if let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView {
+            } else if let transaction = item as? Transaction {
                 if tableColumn?.identifier.rawValue == "kTypeID" {
                     cell.textField?.stringValue = transaction.type.rawValue
                 } else if tableColumn?.identifier.rawValue == "kNameID" {
@@ -129,20 +129,32 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
                     cell.textField?.stringValue = "\(Date(timeIntervalSince1970: transaction.datetime).toFormat("dd MMM yyyy"))"
                 } else if tableColumn?.identifier.rawValue == "kAmountID" {
                     cell.textField?.stringValue = "\(transaction.amount)"
+                    cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kBalanceID" {
                     cell.textField?.stringValue = ""
+                    cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kCommentsID" {
                     cell.textField?.stringValue = transaction.comments
                 }
+                cell.textField?.font = NSFont.systemFont(ofSize: 12.0, weight: .regular)
                 return cell;
-            }
-        } else if let err = item as? ListError {
-            if let cell = outlineView.makeView(withIdentifier: tableColumn!.identifier, owner: self) as? NSTableCellView {
+            } else if let err = item as? ListError {
                 cell.textField?.stringValue = err.localizedDescription
                 return cell;
             }
         }
-        
         return nil;
+    }
+    func outlineViewSelectionDidChange(_ notification: Notification) {
+        if let index = outlineView?.selectedRow {
+            let item = outlineView?.item(atRow: index)
+            if let h = item as? Handloan {
+                Context.shared.handloanId = h.id
+                Context.shared.accountId = h.accountId
+            } else if let t = item as? Transaction {
+                Context.shared.transactionId = t.id
+                Context.shared.handloanId = t.handloanId
+            }
+        }
     }
 }

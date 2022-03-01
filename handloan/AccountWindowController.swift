@@ -41,3 +41,6 @@ class AccountWindowController: NSWindowController {
         errorLabel?.stringValue = messageText + " " + informationText
     }
 }
+class AccountWindow: NSWindow {
+    override class func awakeFromNib() {}
+}

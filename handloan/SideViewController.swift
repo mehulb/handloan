@@ -52,6 +52,7 @@ extension SideViewController: NSTableViewDataSource, NSTableViewDelegate {
     func tableViewSelectionDidChange(_ notification: Notification) {
         Logger.debug()
         if let selectedRow = tableView?.selectedRow {
+            Context.shared.accountId = accounts[selectedRow].id
             NotificationCenter.default.post(name: .selectAccount, object: accounts[selectedRow])
         }
     }

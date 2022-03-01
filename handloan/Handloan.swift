@@ -53,7 +53,7 @@ struct Handloan {
 extension Handloan {
     func transactions() throws -> [Transaction] {
         do {
-            return try DBManager.shared.fetchTransactionsFor(handloanId: self.id)
+            return try DBManager.shared.fetchTransactions(forHandloanId: self.id)
         } catch {
             throw error
         }
