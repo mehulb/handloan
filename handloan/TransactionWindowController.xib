@@ -8,10 +8,12 @@
     <objects>
         <customObject id="-2" userLabel="File's Owner" customClass="TransactionWindowController" customModule="handloan" customModuleProvider="target">
             <connections>
+                <outlet property="accountsPopUpButton" destination="jYv-A1-6Kv" id="6Il-j0-Z9j"/>
                 <outlet property="amountTextField" destination="p51-an-RWr" id="T3h-QA-LMq"/>
-                <outlet property="commentsTextField" destination="DWZ-TF-alZ" id="S86-Df-KHr"/>
+                <outlet property="commentsTextField" destination="PcP-Ml-mSP" id="GJ2-vy-uq9"/>
                 <outlet property="datePicker" destination="lmy-4B-hyt" id="O4y-Vt-8HY"/>
                 <outlet property="errorLabel" destination="TvX-JP-Id3" id="3Yv-EG-zYs"/>
+                <outlet property="handloansPopUpButton" destination="jSJ-2h-Snh" id="SeX-dN-XS9"/>
                 <outlet property="typeSegemtedControl" destination="X1R-OF-loX" id="FBA-hK-frE"/>
                 <outlet property="window" destination="k61-dE-54G" id="CvJ-N4-6Ah"/>
             </connections>
@@ -63,25 +65,25 @@
                                     </datePickerCell>
                                 </datePicker>
                                 <box title="Comments" translatesAutoresizingMaskIntoConstraints="NO" id="sEG-Ee-8Zq">
-                                    <rect key="frame" x="13" y="56" width="374" height="76"/>
+                                    <rect key="frame" x="17" y="56" width="366" height="76"/>
                                     <view key="contentView" id="ToT-pa-mW5">
-                                        <rect key="frame" x="3" y="3" width="368" height="58"/>
+                                        <rect key="frame" x="3" y="3" width="360" height="58"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
-                                            <textField verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="DWZ-TF-alZ">
-                                                <rect key="frame" x="2" y="4" width="364" height="50"/>
-                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" placeholderString="(Optional)" id="4nB-QK-yKC">
-                                                    <font key="font" usesAppearanceFont="YES"/>
+                                            <textField verticalHuggingPriority="750" horizontalCompressionResistancePriority="250" translatesAutoresizingMaskIntoConstraints="NO" id="PcP-Ml-mSP">
+                                                <rect key="frame" x="2" y="4" width="356" height="50"/>
+                                                <textFieldCell key="cell" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" state="on" placeholderString="(Optional)" id="rXS-hR-85W">
+                                                    <font key="font" metaFont="system"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                                 </textFieldCell>
                                             </textField>
                                         </subviews>
                                         <constraints>
-                                            <constraint firstItem="DWZ-TF-alZ" firstAttribute="leading" secondItem="ToT-pa-mW5" secondAttribute="leading" constant="4" id="Xyh-lV-aXy"/>
-                                            <constraint firstAttribute="bottom" secondItem="DWZ-TF-alZ" secondAttribute="bottom" constant="4" id="agF-WZ-p0m"/>
-                                            <constraint firstItem="DWZ-TF-alZ" firstAttribute="top" secondItem="ToT-pa-mW5" secondAttribute="top" constant="4" id="bqU-H1-yv5"/>
-                                            <constraint firstAttribute="trailing" secondItem="DWZ-TF-alZ" secondAttribute="trailing" constant="4" id="yVt-pz-owz"/>
+                                            <constraint firstItem="PcP-Ml-mSP" firstAttribute="top" secondItem="ToT-pa-mW5" secondAttribute="top" constant="4" id="44y-DH-Upu"/>
+                                            <constraint firstAttribute="bottom" secondItem="PcP-Ml-mSP" secondAttribute="bottom" constant="4" id="H5L-kn-6eu"/>
+                                            <constraint firstItem="PcP-Ml-mSP" firstAttribute="leading" secondItem="ToT-pa-mW5" secondAttribute="leading" constant="4" id="xi6-YX-JlZ"/>
+                                            <constraint firstAttribute="trailing" secondItem="PcP-Ml-mSP" secondAttribute="trailing" constant="4" id="yp4-bL-k1Y"/>
                                         </constraints>
                                     </view>
                                     <constraints>
@@ -89,13 +91,13 @@
                                     </constraints>
                                 </box>
                                 <box title="Amount" translatesAutoresizingMaskIntoConstraints="NO" id="804-as-HR8">
-                                    <rect key="frame" x="13" y="136" width="374" height="48"/>
+                                    <rect key="frame" x="17" y="136" width="366" height="48"/>
                                     <view key="contentView" id="q9s-XK-A7F">
-                                        <rect key="frame" x="3" y="3" width="368" height="30"/>
+                                        <rect key="frame" x="3" y="3" width="360" height="30"/>
                                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                         <subviews>
                                             <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="p51-an-RWr">
-                                                <rect key="frame" x="2" y="4" width="364" height="22"/>
+                                                <rect key="frame" x="2" y="4" width="356" height="22"/>
                                                 <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="(Required)" id="Btk-wf-HM3">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -170,17 +172,14 @@ Gw
                                         <subviews>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jYv-A1-6Kv">
                                                 <rect key="frame" x="1" y="0.0" width="367" height="27"/>
-                                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="JME-8c-6dc" id="Dgw-Ys-OBm">
+                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="Dgw-Ys-OBm">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="Fhw-YL-Vv0">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="JME-8c-6dc"/>
-                                                            <menuItem title="Item 2" id="COc-eq-JCi"/>
-                                                            <menuItem title="Item 3" id="qp5-u6-JUF"/>
-                                                        </items>
-                                                    </menu>
+                                                    <menu key="menu" id="Fhw-YL-Vv0"/>
                                                 </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="accountsPopUpButton_SelectionChanged:" target="-2" id="laV-Xw-jlq"/>
+                                                </connections>
                                             </popUpButton>
                                         </subviews>
                                         <constraints>
@@ -202,17 +201,14 @@ Gw
                                         <subviews>
                                             <popUpButton verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="jSJ-2h-Snh">
                                                 <rect key="frame" x="1" y="0.0" width="367" height="27"/>
-                                                <popUpButtonCell key="cell" type="push" title="Item 1" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" state="on" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" selectedItem="bZp-tA-rFQ" id="0LO-qn-m0c">
+                                                <popUpButtonCell key="cell" type="push" bezelStyle="rounded" alignment="left" lineBreakMode="truncatingTail" borderStyle="borderAndBezel" imageScaling="proportionallyDown" inset="2" id="0LO-qn-m0c">
                                                     <behavior key="behavior" lightByBackground="YES" lightByGray="YES"/>
                                                     <font key="font" metaFont="menu"/>
-                                                    <menu key="menu" id="ctC-y8-mWl">
-                                                        <items>
-                                                            <menuItem title="Item 1" state="on" id="bZp-tA-rFQ"/>
-                                                            <menuItem title="Item 2" id="wJE-ff-FY9"/>
-                                                            <menuItem title="Item 3" id="UGA-eR-XTI"/>
-                                                        </items>
-                                                    </menu>
+                                                    <menu key="menu" id="ctC-y8-mWl"/>
                                                 </popUpButtonCell>
+                                                <connections>
+                                                    <action selector="handloansPopUpButton_SelectionChanged:" target="-2" id="h80-Zp-Qlr"/>
+                                                </connections>
                                             </popUpButton>
                                         </subviews>
                                         <constraints>
@@ -240,18 +236,18 @@ Gw
                             </subviews>
                             <constraints>
                                 <constraint firstItem="X1R-OF-loX" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="20" symbolic="YES" id="2dl-lI-nlK"/>
-                                <constraint firstItem="sEG-Ee-8Zq" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="16" symbolic="YES" id="49d-wp-Zmu"/>
-                                <constraint firstAttribute="trailing" secondItem="sEG-Ee-8Zq" secondAttribute="trailing" constant="16" symbolic="YES" id="5Cq-ph-xOL"/>
+                                <constraint firstItem="sEG-Ee-8Zq" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="20" id="49d-wp-Zmu"/>
+                                <constraint firstAttribute="trailing" secondItem="sEG-Ee-8Zq" secondAttribute="trailing" constant="20" id="5Cq-ph-xOL"/>
                                 <constraint firstAttribute="trailing" secondItem="X1R-OF-loX" secondAttribute="trailing" constant="20" symbolic="YES" id="AaQ-bY-uGU"/>
                                 <constraint firstItem="804-as-HR8" firstAttribute="top" secondItem="lmy-4B-hyt" secondAttribute="bottom" constant="8" symbolic="YES" id="Auo-m2-gwE"/>
                                 <constraint firstItem="X1R-OF-loX" firstAttribute="top" secondItem="xvE-Lv-Ue7" secondAttribute="bottom" constant="20" symbolic="YES" id="DXp-x5-7WC"/>
                                 <constraint firstItem="tqg-hi-VN2" firstAttribute="leading" secondItem="TvX-JP-Id3" secondAttribute="trailing" constant="8" id="FGf-wE-A6Z"/>
                                 <constraint firstAttribute="trailing" secondItem="uKh-Ao-49n" secondAttribute="trailing" constant="16" symbolic="YES" id="INY-Qy-py3"/>
                                 <constraint firstAttribute="trailing" secondItem="lmy-4B-hyt" secondAttribute="trailing" constant="20" symbolic="YES" id="ITF-IZ-Ouz"/>
-                                <constraint firstAttribute="trailing" secondItem="804-as-HR8" secondAttribute="trailing" constant="16" symbolic="YES" id="IU0-8j-RjO"/>
+                                <constraint firstAttribute="trailing" secondItem="804-as-HR8" secondAttribute="trailing" constant="20" id="IU0-8j-RjO"/>
                                 <constraint firstItem="uKh-Ao-49n" firstAttribute="top" secondItem="uLM-vB-svs" secondAttribute="bottom" constant="8" symbolic="YES" id="Jsj-o9-45a"/>
                                 <constraint firstItem="xvE-Lv-Ue7" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" id="Krz-D4-UYp"/>
-                                <constraint firstItem="804-as-HR8" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="16" symbolic="YES" id="Nse-Vv-9iY"/>
+                                <constraint firstItem="804-as-HR8" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="20" id="Nse-Vv-9iY"/>
                                 <constraint firstItem="uKh-Ao-49n" firstAttribute="leading" secondItem="XjP-Pu-wCj" secondAttribute="leading" constant="16" symbolic="YES" id="SNF-NQ-ZW7"/>
                                 <constraint firstItem="uLM-vB-svs" firstAttribute="top" secondItem="XjP-Pu-wCj" secondAttribute="top" constant="11" symbolic="YES" id="Sbp-o4-bo1"/>
                                 <constraint firstItem="qJQ-ym-Oww" firstAttribute="top" secondItem="sEG-Ee-8Zq" secondAttribute="bottom" constant="20" symbolic="YES" id="UXN-0G-paz"/>
@@ -283,7 +279,7 @@ Gw
             </connections>
             <point key="canvasLocation" x="139" y="229"/>
         </window>
-        <numberFormatter formatterBehavior="default10_4" numberStyle="currency" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" minimumFractionDigits="2" maximumFractionDigits="2" id="Imc-QV-RBa">
+        <numberFormatter formatterBehavior="default10_4" numberStyle="decimal" formatWidth="-1" minimumIntegerDigits="1" maximumIntegerDigits="2000000000" maximumFractionDigits="3" id="Imc-QV-RBa">
             <real key="minimum" value="0.0"/>
         </numberFormatter>
     </objects>

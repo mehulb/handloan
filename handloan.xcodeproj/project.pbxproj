@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		28AD67CE27E1B8ED003DC6D9 /* DB+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD67CD27E1B8ED003DC6D9 /* DB+Transaction.swift */; };
 		28F4220427C81D38003D8F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4220327C81D38003D8F8A /* AppDelegate.swift */; };
 		28F4220827C81D39003D8F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220727C81D39003D8F8A /* Assets.xcassets */; };
 		28F4220B27C81D39003D8F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220927C81D39003D8F8A /* Main.storyboard */; };
@@ -27,9 +28,12 @@
 		28F4225127CBEE4A003D8F8A /* HandloanWindowController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4224F27CBEE4A003D8F8A /* HandloanWindowController.swift */; };
 		28F4225227CBEE4A003D8F8A /* HandloanWindowController.xib in Resources */ = {isa = PBXBuildFile; fileRef = 28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */; };
 		28F4225B27CC0029003D8F8A /* SwiftDate in Frameworks */ = {isa = PBXBuildFile; productRef = 28F4225A27CC0029003D8F8A /* SwiftDate */; };
+		28F4225E27CF1DB5003D8F8A /* DB+Account.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4225D27CF1DB5003D8F8A /* DB+Account.swift */; };
+		28F4226027CF1FF1003D8F8A /* DB+Handloan.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4225F27CF1FF1003D8F8A /* DB+Handloan.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		28AD67CD27E1B8ED003DC6D9 /* DB+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Transaction.swift"; sourceTree = "<group>"; };
 		28F4220027C81D38003D8F8A /* handloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = handloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F4220327C81D38003D8F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F4220727C81D39003D8F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -49,6 +53,8 @@
 		28F4224927CBD43E003D8F8A /* Handloan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Handloan.swift; sourceTree = "<group>"; };
 		28F4224F27CBEE4A003D8F8A /* HandloanWindowController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HandloanWindowController.swift; sourceTree = "<group>"; };
 		28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HandloanWindowController.xib; sourceTree = "<group>"; };
+		28F4225D27CF1DB5003D8F8A /* DB+Account.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Account.swift"; sourceTree = "<group>"; };
+		28F4225F27CF1FF1003D8F8A /* DB+Handloan.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Handloan.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -92,7 +98,7 @@
 				28F4225427CBEEA4003D8F8A /* HandloanController */,
 				28F4224027CBC9B2003D8F8A /* TransactionController */,
 				28F4221627C94D08003D8F8A /* Supporting Files */,
-				28F4221927C950D0003D8F8A /* DBManager.swift */,
+				28F4225C27CF1D88003D8F8A /* DataModels */,
 				28F4222027C97A13003D8F8A /* Account.swift */,
 				28F4224927CBD43E003D8F8A /* Handloan.swift */,
 				28F4222227C97A1D003D8F8A /* Transaction.swift */,
@@ -136,6 +142,17 @@
 				28F4225027CBEE4A003D8F8A /* HandloanWindowController.xib */,
 			);
 			name = HandloanController;
+			sourceTree = "<group>";
+		};
+		28F4225C27CF1D88003D8F8A /* DataModels */ = {
+			isa = PBXGroup;
+			children = (
+				28F4221927C950D0003D8F8A /* DBManager.swift */,
+				28F4225D27CF1DB5003D8F8A /* DB+Account.swift */,
+				28F4225F27CF1FF1003D8F8A /* DB+Handloan.swift */,
+				28AD67CD27E1B8ED003DC6D9 /* DB+Transaction.swift */,
+			);
+			name = DataModels;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -230,7 +247,10 @@
 				28F4220427C81D38003D8F8A /* AppDelegate.swift in Sources */,
 				28F4225127CBEE4A003D8F8A /* HandloanWindowController.swift in Sources */,
 				28F4221827C94D45003D8F8A /* ViewController.swift in Sources */,
+				28AD67CE27E1B8ED003DC6D9 /* DB+Transaction.swift in Sources */,
 				28F4223527CB7DC9003D8F8A /* TransactionWindowController.swift in Sources */,
+				28F4226027CF1FF1003D8F8A /* DB+Handloan.swift in Sources */,
+				28F4225E27CF1DB5003D8F8A /* DB+Account.swift in Sources */,
 				28F4221527C94D02003D8F8A /* SideViewController.swift in Sources */,
 				28F4222127C97A13003D8F8A /* Account.swift in Sources */,
 			);
@@ -377,6 +397,7 @@
 				DEVELOPMENT_TEAM = 638CAR2KDN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Handloans;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;
@@ -404,6 +425,7 @@
 				DEVELOPMENT_TEAM = 638CAR2KDN;
 				ENABLE_HARDENED_RUNTIME = YES;
 				GENERATE_INFOPLIST_FILE = YES;
+				INFOPLIST_KEY_CFBundleDisplayName = Handloans;
 				INFOPLIST_KEY_NSHumanReadableCopyright = "";
 				INFOPLIST_KEY_NSMainStoryboardFile = Main;
 				INFOPLIST_KEY_NSPrincipalClass = NSApplication;

@@ -26,3 +26,13 @@ class AppDelegate: NSObject, NSApplicationDelegate {
     }
 }
 
+extension AppDelegate {
+    @IBAction func openDatabaseDirectory(_ item: Any) {
+        if let path = DBManager.shared.fetchDatabasePath() {
+            let url = URL(fileURLWithPath: path).deletingLastPathComponent()
+            NSWorkspace.shared.open(url)
+        }
+        
+    }
+}
+

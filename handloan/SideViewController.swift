@@ -17,7 +17,17 @@ class SideViewController: NSViewController {
         
 //        DBManager.shared.loadDummyData()
         
+        let rightClickMenu = NSMenu()
+        rightClickMenu.addItem(withTitle: "Edit", action: #selector(editMenuItem_Clicked(_:)), keyEquivalent: "")
+        rightClickMenu.addItem(withTitle: "Delete", action: #selector(deleteMenuItem_Clicked(_:)), keyEquivalent: "")
+        tableView?.menu = rightClickMenu
+        tableView?.menu?.delegate = self
+        
         reload()
+        if let selectedRow = tableView?.selectedRow, selectedRow >= 0 {
+            Context.current.account = accounts[selectedRow]
+            NotificationCenter.default.post(name: .selectAccount, object: accounts[selectedRow])
+        }
         
         NotificationCenter.default.addObserver(forName: .reload, object: nil, queue: nil) { _ in
             self.reload()
@@ -26,13 +36,26 @@ class SideViewController: NSViewController {
     
     func reload() {
         do {
-            accounts = try Account.fetchAll()
+            accounts = try Account.all()
         } catch {
             Logger.error(error)
         }
         tableView?.reloadData()
     }
     
+}
+extension SideViewController: NSMenuDelegate {
+    @objc func editMenuItem_Clicked(_ sender: Any) {
+        
+    }
+    @objc func deleteMenuItem_Clicked(_ sender: Any) {
+        
+    }
+    func menuWillOpen(_ menu: NSMenu) {
+        if let row = tableView?.selectedRow, row < 0 {
+            menu.cancelTrackingWithoutAnimation()
+        }
+    }
 }
 
 extension SideViewController: NSTableViewDataSource, NSTableViewDelegate {
@@ -51,8 +74,8 @@ extension SideViewController: NSTableViewDataSource, NSTableViewDelegate {
     }
     func tableViewSelectionDidChange(_ notification: Notification) {
         Logger.debug()
-        if let selectedRow = tableView?.selectedRow {
-            Context.shared.accountId = accounts[selectedRow].id
+        if let selectedRow = tableView?.selectedRow, selectedRow >= 0 {
+            Context.current.account = accounts[selectedRow]
             NotificationCenter.default.post(name: .selectAccount, object: accounts[selectedRow])
         }
     }

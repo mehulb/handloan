@@ -50,19 +50,3 @@ struct Handloan {
         ].jsonify()
     }
 }
-extension Handloan {
-    func transactions() throws -> [Transaction] {
-        do {
-            return try DBManager.shared.fetchTransactions(forHandloanId: self.id)
-        } catch {
-            throw error
-        }
-    }
-    func save() throws {
-        do {
-            return try DBManager.shared.saveHandloan(self)
-        } catch {
-            throw error
-        }
-    }
-}

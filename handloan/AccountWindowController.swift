@@ -12,6 +12,8 @@ class AccountWindowController: NSWindowController {
     @IBOutlet private var commentsTextField: NSTextField?
     @IBOutlet private var errorLabel: NSTextField?
     
+    
+    
     override func windowDidLoad() {
         super.windowDidLoad()
     }

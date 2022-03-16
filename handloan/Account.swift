@@ -28,26 +28,3 @@ struct Account {
         ].jsonify()
     }
 }
-extension Account {
-    static func fetchAll() throws -> [Account] {
-        do {
-            return try DBManager.shared.fetchAccounts()
-        } catch {
-            throw error
-        }
-    }
-    func handloans() throws -> [Handloan] {
-        do {
-            return try DBManager.shared.fetchHandloans(forAccountId: self.id)
-        } catch {
-            throw error
-        }
-    }
-    func save() throws {
-        do {
-            return try DBManager.shared.saveAccount(self)
-        } catch {
-            throw error
-        }
-    }
-}

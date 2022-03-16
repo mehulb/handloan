@@ -24,6 +24,13 @@ class ViewController: NSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let rightClickMenu = NSMenu()
+        rightClickMenu.addItem(withTitle: "Edit", action: #selector(editMenuItem_Clicked(_:)), keyEquivalent: "")
+        rightClickMenu.addItem(withTitle: "Delete", action: #selector(deleteMenuItem_Clicked(_:)), keyEquivalent: "")
+        outlineView?.menu = rightClickMenu
+        outlineView?.menu?.delegate = self
+        
         reload()
         
         NotificationCenter.default.addObserver(forName: .reload, object: nil, queue: nil) { _ in
@@ -62,6 +69,19 @@ class ViewController: NSViewController {
         return total-amount
     }
 }
+extension ViewController: NSMenuDelegate {
+    @objc func editMenuItem_Clicked(_ sender: Any) {
+        
+    }
+    @objc func deleteMenuItem_Clicked(_ sender: Any) {
+        
+    }
+    func menuWillOpen(_ menu: NSMenu) {
+        if let row = outlineView?.selectedRow, row < 0 {
+            menu.cancelTrackingWithoutAnimation()
+        }
+    }
+}
 
 extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, numberOfChildrenOfItem item: Any?) -> Int {
@@ -86,7 +106,10 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
         return ListError.DataMissing
     }
     func outlineView(_ outlineView: NSOutlineView, isItemExpandable item: Any) -> Bool {
-        return item is Handloan
+        if let h = item as? Handloan {
+            return h.hasTransactions()
+        }
+        return false
     }
     func outlineView(_ outlineView: NSOutlineView, objectValueFor tableColumn: NSTableColumn?, byItem item: Any?) -> Any? {
         return item
@@ -146,14 +169,12 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
         return nil;
     }
     func outlineViewSelectionDidChange(_ notification: Notification) {
-        if let index = outlineView?.selectedRow {
+        if let index = outlineView?.selectedRow, index >= 0 {
             let item = outlineView?.item(atRow: index)
             if let h = item as? Handloan {
-                Context.shared.handloanId = h.id
-                Context.shared.accountId = h.accountId
+                Context.current.handloan = h
             } else if let t = item as? Transaction {
-                Context.shared.transactionId = t.id
-                Context.shared.handloanId = t.handloanId
+                Context.current.transaction = t
             }
         }
     }

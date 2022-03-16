@@ -9,7 +9,7 @@ import Cocoa
 
 class HandloanWindowController: NSWindowController {
     
-    @IBOutlet private var accountLabel: NSTextField?
+    @IBOutlet private var accountsPopUpButton: NSPopUpButton?
     @IBOutlet private var typeSegemtedControl: NSSegmentedControl?
     @IBOutlet private var nameTextField: NSTextField?
     @IBOutlet private var datePicker: NSDatePicker?
@@ -17,16 +17,32 @@ class HandloanWindowController: NSWindowController {
     @IBOutlet private var commentsTextField: NSTextField?
     @IBOutlet private var errorLabel: NSTextField?
     
-    var account: Account?
+    private var currentAccount: Account?
+    private var accounts: [Account]?
 
     override func windowDidLoad() {
         super.windowDidLoad()
-        
-        if account == nil {
-            errorLabel?.stringValue = "Account data missing!"
+        do {
+            accounts = try Account.all()
+            accountsPopUpButton?.removeAllItems()
+            if let accounts = accounts {
+                for a in accounts {
+                    accountsPopUpButton?.addItem(withTitle: a.name)
+                }
+            }
+            if let a = Context.current.account {
+                currentAccount = a
+            } else {
+                currentAccount = accounts?.first
+            }
+        } catch {
+            Logger.error(error.localizedDescription)
+            errorLabel?.stringValue = error.localizedDescription
         }
         
-        accountLabel?.stringValue = account?.name ?? "<<error>>"
+        if let currentAccount = currentAccount {
+            accountsPopUpButton?.selectItem(withTitle: currentAccount.name)
+        }
         typeSegemtedControl?.selectSegment(withTag: 1)
         datePicker?.dateValue = Date()
         amountTextField?.doubleValue = 0.0
@@ -35,10 +51,15 @@ class HandloanWindowController: NSWindowController {
     }
     
     @IBAction func saveButton_Clicked(_ button: NSButton) {
-        if let account = account, let datetime = datePicker?.dateValue.timeIntervalSince1970, let amount = amountTextField?.doubleValue, let comments = commentsTextField?.stringValue, let name = nameTextField?.stringValue {
+        if let account = currentAccount,
+           let datetime = datePicker?.dateValue.timeIntervalSince1970,
+           let amount = amountTextField?.doubleValue,
+           let comments = commentsTextField?.stringValue,
+           let name = nameTextField?.stringValue {
             let hl = Handloan(type: typeSegemtedControl?.selectedSegment == 0 ? .borrow : .lend, name: name, datetime: datetime, amount: amount, comments: comments, accountId: account.id)
             do {
                 try hl.save()
+                self.window?.sheetParent?.endSheet(self.window!, returnCode: .OK)
             } catch {
                 showAlert(withMessageText: "Failed to save handloan.", informationText: error.localizedDescription)
             }
@@ -48,6 +69,12 @@ class HandloanWindowController: NSWindowController {
     }
     @IBAction func cancelButton_Clicked(_ button: NSButton) {
         self.window?.sheetParent?.endSheet(self.window!, returnCode: .cancel)
+    }
+    @IBAction func accountsPopUpButton_SelectionChanged(_ button: NSPopUpButton) {
+        Logger.debug(button.selectedItem?.title)
+        if let accounts = accounts {
+            currentAccount = accounts[button.indexOfSelectedItem]
+        }
     }
     
     private func showAlert(withMessageText messageText: String, informationText: String) {

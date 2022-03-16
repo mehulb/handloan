@@ -99,8 +99,8 @@ class SplitViewController: NSSplitViewController {
 }
 
 class Context {
-    static let shared = Context()
-    var accountId: String?
-    var handloanId: String?
-    var transactionId: String?
+    static let current = Context()
+    var account: Account?
+    var handloan: Handloan?
+    var transaction: Transaction?
 }

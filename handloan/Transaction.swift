@@ -46,12 +46,3 @@ struct Transaction {
         ].jsonify()
     }
 }
-extension Transaction {
-    func save() throws {
-        do {
-            return try DBManager.shared.saveTransaction(self)
-        } catch {
-            throw error
-        }
-    }
-}
