@@ -156,4 +156,18 @@ extension Handloan {
             return false
         }
     }
+    
+    func balance() -> Double? {
+        var amount = 0.0
+        do {
+            let ts = try self.transactions()
+            for t in ts {
+                amount += t.amount
+            }
+            return self.amount - amount
+        } catch {
+            Logger.error(error.localizedDescription)
+            return nil
+        }
+    }
 }

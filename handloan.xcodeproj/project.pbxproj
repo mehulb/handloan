@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		28AD67CE27E1B8ED003DC6D9 /* DB+Transaction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28AD67CD27E1B8ED003DC6D9 /* DB+Transaction.swift */; };
+		28AD67D227E27467003DC6D9 /* rswift in Frameworks */ = {isa = PBXBuildFile; productRef = 28AD67D127E27467003DC6D9 /* rswift */; };
 		28F4220427C81D38003D8F8A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 28F4220327C81D38003D8F8A /* AppDelegate.swift */; };
 		28F4220827C81D39003D8F8A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220727C81D39003D8F8A /* Assets.xcassets */; };
 		28F4220B27C81D39003D8F8A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 28F4220927C81D39003D8F8A /* Main.storyboard */; };
@@ -34,7 +35,7 @@
 
 /* Begin PBXFileReference section */
 		28AD67CD27E1B8ED003DC6D9 /* DB+Transaction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "DB+Transaction.swift"; sourceTree = "<group>"; };
-		28F4220027C81D38003D8F8A /* handloan.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = handloan.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		28F4220027C81D38003D8F8A /* Handloans.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Handloans.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		28F4220327C81D38003D8F8A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		28F4220727C81D39003D8F8A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		28F4220A27C81D39003D8F8A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -63,6 +64,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				28F4221F27C9547F003D8F8A /* SQLite in Frameworks */,
+				28AD67D227E27467003DC6D9 /* rswift in Frameworks */,
 				28F4222C27CAABB0003D8F8A /* CustomButton in Frameworks */,
 				28F4225B27CC0029003D8F8A /* SwiftDate in Frameworks */,
 			);
@@ -82,7 +84,7 @@
 		28F4220127C81D38003D8F8A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				28F4220027C81D38003D8F8A /* handloan.app */,
+				28F4220027C81D38003D8F8A /* Handloans.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -158,26 +160,28 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		28F421FF27C81D38003D8F8A /* handloan */ = {
+		28F421FF27C81D38003D8F8A /* Handloans */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 28F4220F27C81D39003D8F8A /* Build configuration list for PBXNativeTarget "handloan" */;
+			buildConfigurationList = 28F4220F27C81D39003D8F8A /* Build configuration list for PBXNativeTarget "Handloans" */;
 			buildPhases = (
 				28F421FC27C81D38003D8F8A /* Sources */,
 				28F421FD27C81D38003D8F8A /* Frameworks */,
 				28F421FE27C81D38003D8F8A /* Resources */,
+				28AD67CF27E270D9003DC6D9 /* SwiftLint */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = handloan;
+			name = Handloans;
 			packageProductDependencies = (
 				28F4221E27C9547F003D8F8A /* SQLite */,
 				28F4222B27CAABB0003D8F8A /* CustomButton */,
 				28F4225A27CC0029003D8F8A /* SwiftDate */,
+				28AD67D127E27467003DC6D9 /* rswift */,
 			);
 			productName = handloan;
-			productReference = 28F4220027C81D38003D8F8A /* handloan.app */;
+			productReference = 28F4220027C81D38003D8F8A /* Handloans.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -208,12 +212,13 @@
 				28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */,
 				28F4222A27CAABB0003D8F8A /* XCRemoteSwiftPackageReference "CustomButton" */,
 				28F4225927CC0029003D8F8A /* XCRemoteSwiftPackageReference "SwiftDate" */,
+				28AD67D027E27467003DC6D9 /* XCRemoteSwiftPackageReference "R.swift" */,
 			);
 			productRefGroup = 28F4220127C81D38003D8F8A /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				28F421FF27C81D38003D8F8A /* handloan */,
+				28F421FF27C81D38003D8F8A /* Handloans */,
 			);
 		};
 /* End PBXProject section */
@@ -232,6 +237,27 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		28AD67CF27E270D9003DC6D9 /* SwiftLint */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+			);
+			name = SwiftLint;
+			outputFileListPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Type a script or drag a script file from your workspace to insert its path.\n#if which swiftlint >/dev/null; then\n # swiftlint\n#else\n # echo \"warning: SwiftLint not installed, download from https://github.com/realm/SwiftLint\"\n#fi\n";
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		28F421FC27C81D38003D8F8A /* Sources */ = {
@@ -453,7 +479,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		28F4220F27C81D39003D8F8A /* Build configuration list for PBXNativeTarget "handloan" */ = {
+		28F4220F27C81D39003D8F8A /* Build configuration list for PBXNativeTarget "Handloans" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				28F4221027C81D39003D8F8A /* Debug */,
@@ -465,6 +491,14 @@
 /* End XCConfigurationList section */
 
 /* Begin XCRemoteSwiftPackageReference section */
+		28AD67D027E27467003DC6D9 /* XCRemoteSwiftPackageReference "R.swift" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/mac-cain13/R.swift.git";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.1.0;
+			};
+		};
 		28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/stephencelis/SQLite.swift";
@@ -477,21 +511,26 @@
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/sindresorhus/CustomButton";
 			requirement = {
-				branch = main;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 2.0.0;
 			};
 		};
 		28F4225927CC0029003D8F8A /* XCRemoteSwiftPackageReference "SwiftDate" */ = {
 			isa = XCRemoteSwiftPackageReference;
 			repositoryURL = "https://github.com/malcommac/SwiftDate";
 			requirement = {
-				branch = master;
-				kind = branch;
+				kind = upToNextMajorVersion;
+				minimumVersion = 6.3.1;
 			};
 		};
 /* End XCRemoteSwiftPackageReference section */
 
 /* Begin XCSwiftPackageProductDependency section */
+		28AD67D127E27467003DC6D9 /* rswift */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 28AD67D027E27467003DC6D9 /* XCRemoteSwiftPackageReference "R.swift" */;
+			productName = rswift;
+		};
 		28F4221E27C9547F003D8F8A /* SQLite */ = {
 			isa = XCSwiftPackageProductDependency;
 			package = 28F4221D27C9547F003D8F8A /* XCRemoteSwiftPackageReference "SQLite" */;

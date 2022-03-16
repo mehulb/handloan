@@ -45,7 +45,7 @@ class HandloanWindowController: NSWindowController {
         }
         typeSegemtedControl?.selectSegment(withTag: 1)
         datePicker?.dateValue = Date()
-        amountTextField?.doubleValue = 0.0
+        amountTextField?.stringValue = ""
         commentsTextField?.stringValue = ""
         errorLabel?.stringValue = ""
     }

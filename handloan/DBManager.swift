@@ -134,3 +134,12 @@ extension DBManager {
         }
     }
 }
+
+extension Double {
+    func currencyFormat() -> String {
+        let currencyFormatter = NumberFormatter()
+        currencyFormatter.locale = Locale.current
+        currencyFormatter.numberStyle = .currency
+        return currencyFormatter.string(from: NSNumber(value: self)) ?? "#err"
+    }
+}

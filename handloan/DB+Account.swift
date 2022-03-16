@@ -168,4 +168,17 @@ extension Account {
             throw error
         }
     }
+    func balance() -> Double? {
+        var amount = 0.0
+        do {
+            let hs = try self.handloans()
+            for h in hs {
+                amount += h.balance() ?? 0.0
+            }
+            return amount
+        } catch {
+            Logger.error(error.localizedDescription)
+            return nil
+        }
+    }
 }

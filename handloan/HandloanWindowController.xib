@@ -6,7 +6,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <customObject id="-2" userLabel="File's Owner" customClass="HandloanWindowController" customModule="handloan" customModuleProvider="target">
+        <customObject id="-2" userLabel="File's Owner" customClass="HandloanWindowController" customModule="Handloans" customModuleProvider="target">
             <connections>
                 <outlet property="accountsPopUpButton" destination="rjV-g8-eOw" id="TtH-eP-oZ3"/>
                 <outlet property="amountTextField" destination="KQG-5N-gSa" id="9XL-VT-ofp"/>
@@ -57,8 +57,8 @@
                                     </constraints>
                                     <datePickerCell key="cell" borderStyle="bezel" alignment="left" useCurrentDate="YES" id="zOa-yU-8Iz">
                                         <font key="font" metaFont="system"/>
-                                        <date key="date" timeIntervalSinceReferenceDate="667742437.90980303">
-                                            <!--2022-02-28 12:00:37 +0000-->
+                                        <date key="date" timeIntervalSinceReferenceDate="669149912.56458998">
+                                            <!--2022-03-16 18:58:32 +0000-->
                                         </date>
                                         <color key="backgroundColor" name="controlBackgroundColor" catalog="System" colorSpace="catalog"/>
                                         <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
@@ -159,7 +159,7 @@ Gw
                                         <constraint firstAttribute="height" constant="44" id="xM4-f3-7Il"/>
                                     </constraints>
                                     <textFieldCell key="cell" selectable="YES" id="fz1-Xi-KiS">
-                                        <font key="font" metaFont="system" size="11"/>
+                                        <font key="font" metaFont="smallSystem"/>
                                         <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                         <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                     </textFieldCell>
@@ -212,7 +212,7 @@ Gw
                                         <subviews>
                                             <textField focusRingType="none" verticalHuggingPriority="750" translatesAutoresizingMaskIntoConstraints="NO" id="Gjz-dO-wjl">
                                                 <rect key="frame" x="2" y="4" width="356" height="22"/>
-                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="(Required)" id="rx2-ay-ivC">
+                                                <textFieldCell key="cell" scrollable="YES" lineBreakMode="clipping" selectable="YES" editable="YES" sendsActionOnEndEditing="YES" focusRingType="none" placeholderString="(Optional)" id="rx2-ay-ivC">
                                                     <font key="font" usesAppearanceFont="YES"/>
                                                     <color key="textColor" name="controlTextColor" catalog="System" colorSpace="catalog"/>
                                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>

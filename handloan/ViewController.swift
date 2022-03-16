@@ -17,6 +17,7 @@ enum ListError: Error {
 class ViewController: NSViewController {
     @IBOutlet private var outlineView: NSOutlineView?
     @IBOutlet private var messageBox: NSBox?
+    @IBOutlet private var balanceLabel: NSTextField?
     
     var account: Account?
     private var handloans = [Handloan]()
@@ -57,6 +58,10 @@ class ViewController: NSViewController {
         }
         messageBox?.isHidden = handloans.count > 0
         outlineView?.reloadData()
+        
+        if let balance = account?.balance() {
+            balanceLabel?.stringValue = balance.currencyFormat()
+        }
     }
     func calculateBalance(_ handloan: Handloan) -> Double {
         let total = handloan.amount
@@ -120,6 +125,7 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
     func outlineView(_ outlineView: NSOutlineView, viewFor tableColumn: NSTableColumn?, item: Any) -> NSView? {
         if let cell = outlineView.makeView(withIdentifier: NSUserInterfaceItemIdentifier(rawValue: "kCell"), owner: self) as? NSTableCellView {
             if let handloan = item as? Handloan {
+                cell.textField?.font = NSFont.systemFont(ofSize: 13.0, weight: .bold)
                 if tableColumn?.identifier.rawValue == "kTypeID" {
                     cell.textField?.stringValue = handloan.type.rawValue
                 } else if tableColumn?.identifier.rawValue == "kNameID" {
@@ -127,23 +133,29 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
                 } else if tableColumn?.identifier.rawValue == "kDateID" {
                     cell.textField?.stringValue = "\(Date(timeIntervalSince1970: handloan.datetime).toFormat("dd MMM yyyy"))"
                 } else if tableColumn?.identifier.rawValue == "kAmountID" {
-                    cell.textField?.stringValue = "\(handloan.amount)"
+                    cell.textField?.stringValue = handloan.amount.currencyFormat()
+                    cell.textField?.font = NSFont(name: "Andale Mono", size: 13.0)
                     cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kBalanceID" {
-                    let balance = calculateBalance(handloan)
-                    cell.textField?.stringValue = "\(balance)"
-                    if balance != 0.0 {
-                        cell.textField?.textColor = handloan.type == .borrow ? NSColor.systemRed : NSColor.systemGreen
+                    if let balance = handloan.balance() {
+                        cell.textField?.stringValue = balance.currencyFormat()
+                        if balance != 0.0 {
+                            cell.textField?.textColor = handloan.type == .borrow ? NSColor.systemRed : NSColor.systemGreen
+                        } else {
+                            cell.textField?.textColor = NSColor.labelColor
+                        }
+                        cell.textField?.alignment = .right
                     } else {
-                        cell.textField?.textColor = NSColor.labelColor
+                        cell.textField?.stringValue = "#err"
+                        cell.textField?.textColor = .systemYellow
                     }
-                    cell.textField?.alignment = .right
+                    cell.textField?.font = NSFont(name: "Andale Mono", size: 13.0)
                 } else if tableColumn?.identifier.rawValue == "kCommentsID" {
                     cell.textField?.stringValue = handloan.comments
                 }
-                cell.textField?.font = NSFont.systemFont(ofSize: 13.0, weight: .bold)
                 return cell;
             } else if let transaction = item as? Transaction {
+                cell.textField?.font = NSFont.systemFont(ofSize: 12.0, weight: .regular)
                 if tableColumn?.identifier.rawValue == "kTypeID" {
                     cell.textField?.stringValue = transaction.type.rawValue
                 } else if tableColumn?.identifier.rawValue == "kNameID" {
@@ -151,15 +163,15 @@ extension ViewController: NSOutlineViewDataSource, NSOutlineViewDelegate {
                 } else if tableColumn?.identifier.rawValue == "kDateID" {
                     cell.textField?.stringValue = "\(Date(timeIntervalSince1970: transaction.datetime).toFormat("dd MMM yyyy"))"
                 } else if tableColumn?.identifier.rawValue == "kAmountID" {
-                    cell.textField?.stringValue = "\(transaction.amount)"
+                    cell.textField?.stringValue = transaction.amount.currencyFormat()
                     cell.textField?.alignment = .right
+                    cell.textField?.font = NSFont(name: "Andale Mono", size: 12.0)
                 } else if tableColumn?.identifier.rawValue == "kBalanceID" {
                     cell.textField?.stringValue = ""
                     cell.textField?.alignment = .right
                 } else if tableColumn?.identifier.rawValue == "kCommentsID" {
                     cell.textField?.stringValue = transaction.comments
                 }
-                cell.textField?.font = NSFont.systemFont(ofSize: 12.0, weight: .regular)
                 return cell;
             } else if let err = item as? ListError {
                 cell.textField?.stringValue = err.localizedDescription
