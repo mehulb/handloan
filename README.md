@@ -1,5 +1,5 @@
 # Handloans
-A simple macOS app keep track of handloans you have lent or borrowed.
+A simple macOS app to keep track of handloans, you have lent or borrowed.
 
 Written in Swift.
 
