@@ -900,13 +900,13 @@
                         <autoresizingMask key="autoresizingMask"/>
                         <subviews>
                             <scrollView autohidesScrollers="YES" horizontalLineScroll="24" horizontalPageScroll="10" verticalLineScroll="24" verticalPageScroll="10" usesPredominantAxisScrolling="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3z-gc-kCK">
-                                <rect key="frame" x="0.0" y="44" width="620" height="424"/>
+                                <rect key="frame" x="0.0" y="64" width="620" height="404"/>
                                 <clipView key="contentView" id="0LY-eQ-6FL">
-                                    <rect key="frame" x="1" y="1" width="618" height="422"/>
+                                    <rect key="frame" x="1" y="1" width="618" height="402"/>
                                     <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                     <subviews>
                                         <outlineView verticalHuggingPriority="750" allowsExpansionToolTips="YES" columnAutoresizingStyle="lastColumnOnly" alternatingRowBackgroundColors="YES" columnReordering="NO" multipleSelection="NO" emptySelection="NO" autosaveColumns="NO" typeSelect="NO" rowHeight="24" rowSizeStyle="automatic" headerView="HYc-Cj-a5u" viewBased="YES" indentationPerLevel="13" outlineTableColumn="vSi-V3-HZ5" id="NaL-1B-00b">
-                                            <rect key="frame" x="0.0" y="0.0" width="618" height="394"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="618" height="374"/>
                                             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                                             <size key="intercellSpacing" width="17" height="0.0"/>
                                             <color key="backgroundColor" red="0.99215686270000003" green="0.098039215690000001" blue="0.1176470588" alpha="0.0" colorSpace="custom" customColorSpace="calibratedRGB"/>
@@ -1225,7 +1225,7 @@
                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="500" id="Q8J-dK-0H0"/>
                                 </constraints>
                                 <scroller key="horizontalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" horizontal="YES" id="lMY-bK-Jnp">
-                                    <rect key="frame" x="1" y="451" width="618" height="16"/>
+                                    <rect key="frame" x="1" y="407" width="618" height="16"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                 </scroller>
                                 <scroller key="verticalScroller" hidden="YES" wantsLayer="YES" verticalHuggingPriority="750" doubleValue="1" horizontal="NO" id="YBd-Q4-ZbM">
@@ -1263,20 +1263,38 @@ Add transactions to account</string>
                                 <color key="fillColor" name="quaternaryLabelColor" catalog="System" colorSpace="catalog"/>
                             </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="HcN-x7-L8X">
-                                <rect key="frame" x="422" y="12" width="180" height="24"/>
+                                <rect key="frame" x="471" y="44" width="131" height="16"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" id="AJw-Ci-BLi">
-                                    <font key="font" size="20" name="AndaleMono"/>
-                                    <color key="textColor" name="systemBlueColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="00,00,00,000.00" id="AJw-Ci-BLi">
+                                    <font key="font" size="14" name="AndaleMono"/>
+                                    <color key="textColor" name="secondaryLabelColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="aDu-7p-6FV">
-                                <rect key="frame" x="351" y="16" width="72" height="18"/>
+                            <box fixedFrame="YES" boxType="custom" borderWidth="0.0" title="Box" translatesAutoresizingMaskIntoConstraints="NO" id="he3-Rw-Ph7">
+                                <rect key="frame" x="0.0" y="39" width="620" height="1"/>
+                                <autoresizingMask key="autoresizingMask" widthSizable="YES" flexibleMaxY="YES"/>
+                                <view key="contentView" id="H2e-jw-gKO">
+                                    <rect key="frame" x="0.0" y="0.0" width="620" height="1"/>
+                                    <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                                </view>
+                                <color key="fillColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                            </box>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="7HK-PP-LyX">
+                                <rect key="frame" x="18" y="9" width="195" height="22"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="left" title="Rs.00,00,000" id="KNe-VZ-pNy">
+                                    <font key="font" size="20" name="AndaleMono"/>
+                                    <color key="textColor" name="systemGreenColor" catalog="System" colorSpace="catalog"/>
+                                    <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
+                                </textFieldCell>
+                            </textField>
+                            <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="zO5-zV-PRV">
+                                <rect key="frame" x="415" y="9" width="187" height="22"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxY="YES"/>
-                                <textFieldCell key="cell" lineBreakMode="clipping" title="Balance" id="U8Y-cX-pwl">
-                                    <font key="font" size="16" name="AndaleMono"/>
-                                    <color key="textColor" name="tertiaryLabelColor" catalog="System" colorSpace="catalog"/>
+                                <textFieldCell key="cell" lineBreakMode="clipping" alignment="right" title="Rs.00,00,000" id="iJf-br-91g">
+                                    <font key="font" size="20" name="AndaleMono"/>
+                                    <color key="textColor" name="systemRedColor" catalog="System" colorSpace="catalog"/>
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
@@ -1287,11 +1305,13 @@ Add transactions to account</string>
                             <constraint firstItem="v0a-GZ-6Qw" firstAttribute="centerY" secondItem="TZP-4a-WsP" secondAttribute="centerY" id="Kb6-PK-KYj"/>
                             <constraint firstItem="d3z-gc-kCK" firstAttribute="leading" secondItem="TZP-4a-WsP" secondAttribute="leading" id="QaA-Ye-Icy"/>
                             <constraint firstItem="d3z-gc-kCK" firstAttribute="top" secondItem="TZP-4a-WsP" secondAttribute="top" id="dVh-f6-ETJ"/>
-                            <constraint firstAttribute="bottom" secondItem="d3z-gc-kCK" secondAttribute="bottom" constant="44" id="i8j-VS-F9i"/>
+                            <constraint firstAttribute="bottom" secondItem="d3z-gc-kCK" secondAttribute="bottom" constant="64" id="i8j-VS-F9i"/>
                         </constraints>
                     </view>
                     <connections>
                         <outlet property="balanceLabel" destination="HcN-x7-L8X" id="QDE-3k-LDo"/>
+                        <outlet property="borrowedBalanceLabel" destination="zO5-zV-PRV" id="bQY-aU-gYK"/>
+                        <outlet property="lentBalanceLabel" destination="7HK-PP-LyX" id="9hj-Ly-Quo"/>
                         <outlet property="messageBox" destination="v0a-GZ-6Qw" id="3of-bX-kkE"/>
                         <outlet property="outlineView" destination="NaL-1B-00b" id="tfU-IQ-wbG"/>
                     </connections>

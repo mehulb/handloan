@@ -19,6 +19,9 @@ class ViewController: NSViewController {
     @IBOutlet private var messageBox: NSBox?
     @IBOutlet private var balanceLabel: NSTextField?
     
+    @IBOutlet private var lentBalanceLabel: NSTextField?
+    @IBOutlet private var borrowedBalanceLabel: NSTextField?
+    
     var account: Account?
     private var handloans = [Handloan]()
     private var transactions = [String: [Transaction]]()
@@ -62,6 +65,11 @@ class ViewController: NSViewController {
         if let balance = account?.balance() {
             balanceLabel?.stringValue = balance.currencyFormat()
         }
+        
+//        Logger.debug("\(DBManager.shared.fetchTotalCredit())")
+//        Lo/gger.debug("\(DBManager.shared.fetchTotalDebit())")
+        lentBalanceLabel?.stringValue = DBManager.shared.fetchTotalLent().currencyFormat()
+        borrowedBalanceLabel?.stringValue = DBManager.shared.fetchTotalBorrowed().currencyFormat()
     }
     func calculateBalance(_ handloan: Handloan) -> Double {
         let total = handloan.amount

@@ -173,7 +173,11 @@ extension Account {
         do {
             let hs = try self.handloans()
             for h in hs {
-                amount += h.balance() ?? 0.0
+                if h.type == .borrow {
+                    amount -= h.balance() ?? 0.0
+                } else {
+                    amount += h.balance() ?? 0.0
+                }
             }
             return amount
         } catch {

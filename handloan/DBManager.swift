@@ -104,6 +104,39 @@ class DBManager {
 }
 
 extension DBManager {
+    func fetchTotalLent() -> Double {
+        var amt = 0.0
+        do {
+            let aes = try Account.all()
+            for a in aes {
+                if let b = a.balance(), b > 0 {
+//                    print("\(b)")
+                    amt += b
+                }
+            }
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+        return amt
+    }
+    func fetchTotalBorrowed() -> Double {
+        var amt = 0.0
+        do {
+            let aes = try Account.all()
+            for a in aes {
+                if let b = a.balance(), b < 0 {
+//                    print("\(b)")
+                    amt += b
+                }
+            }
+        } catch {
+            print("\(error.localizedDescription)")
+        }
+        return amt
+    }
+}
+
+extension DBManager {
     func loadDummyData() {
         do {
             let simon = Account(name: "Simon", comments: "simon says!")
