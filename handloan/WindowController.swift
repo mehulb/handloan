@@ -14,7 +14,7 @@ extension Notification.Name {
 }
 
 class WindowController: NSWindowController {
-    private weak var accountWindowController: AccountWindowController?
+//    private weak var accountWindowController: AccountWindowController?
     private weak var handloanWindowController: HandloanWindowController?
     private weak var transactionWindowController: TransactionWindowController?
     
@@ -22,26 +22,26 @@ class WindowController: NSWindowController {
         super.windowDidLoad()
     }
     
-    @IBAction func addAccountBarButton_Clicked(_ button: NSButton) {
-        Logger.debug()
-        if let windowController = accountWindowController {
-            self.window?.beginSheet(windowController.window!, completionHandler: { response in
-                Logger.debug("\(response)")
-                if response == .OK {
-                    self.reload()
-                }
-            })
-        } else {
-            let windowController = AccountWindowController(windowNibName: "AccountWindowController")
-            accountWindowController = windowController
-            self.window?.beginSheet(windowController.window!, completionHandler: { response in
-                Logger.debug("\(response)")
-                if response == .OK {
-                    self.reload()
-                }
-            })
-        }
-    }
+//    @IBAction func addAccountBarButton_Clicked(_ button: NSButton) {
+//        Logger.debug()
+//        if let windowController = accountWindowController {
+//            self.window?.beginSheet(windowController.window!, completionHandler: { response in
+//                Logger.debug("\(response)")
+//                if response == .OK {
+//                    self.reload()
+//                }
+//            })
+//        } else {
+//            let windowController = AccountWindowController(windowNibName: "AccountWindowController")
+//            accountWindowController = windowController
+//            self.window?.beginSheet(windowController.window!, completionHandler: { response in
+//                Logger.debug("\(response)")
+//                if response == .OK {
+//                    self.reload()
+//                }
+//            })
+//        }
+//    }
     @IBAction func addHandloanBarButton_Clicked(_ button: NSButton) {
         Logger.debug()
         if let windowController = handloanWindowController {

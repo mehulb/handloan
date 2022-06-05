@@ -10,6 +10,8 @@ import Cocoa
 class SideViewController: NSViewController {
     @IBOutlet private var tableView: NSTableView?
     
+    private weak var accountWindowController: AccountWindowController?
+    
     var accounts = [Account]()
     
     override func viewDidLoad() {
@@ -29,8 +31,29 @@ class SideViewController: NSViewController {
             NotificationCenter.default.post(name: .selectAccount, object: accounts[selectedRow])
         }
         
-        NotificationCenter.default.addObserver(forName: .reload, object: nil, queue: nil) { _ in
-            self.reload()
+//        NotificationCenter.default.addObserver(forName: .reload, object: nil, queue: nil) { _ in
+//            self.reload()
+//        }
+    }
+    
+    @IBAction func addAccountBarButton_Clicked(_ button: NSButton) {
+        Logger.debug()
+        if let windowController = accountWindowController {
+            self.view.window?.beginSheet(windowController.window!, completionHandler: { response in
+                Logger.debug("\(response)")
+                if response == .OK {
+                    self.reload()
+                }
+            })
+        } else {
+            let windowController = AccountWindowController(windowNibName: "AccountWindowController")
+            accountWindowController = windowController
+            self.view.window?.beginSheet(windowController.window!, completionHandler: { response in
+                Logger.debug("\(response)")
+                if response == .OK {
+                    self.reload()
+                }
+            })
         }
     }
     
